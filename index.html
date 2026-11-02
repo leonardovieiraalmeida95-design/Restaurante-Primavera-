@@ -71,7 +71,8 @@
     .chapter-no-media{grid-template-columns:54px minmax(0,1fr)}
     .chapter-no-media .chapter-copy{grid-column:2}
     .chapter-no-media .field-note{grid-column:2}
-    @media(max-width:700px){.chapter-no-media{grid-template-columns:42px minmax(0,1fr)}}
+    .chapter:nth-child(even) .field-note{order:4}
+    @media(max-width:700px){.chapter-no-media{grid-template-columns:42px minmax(0,1fr)}.chapter:nth-child(even) .field-note{order:initial}}
     @media(max-width:560px){.story-intro h2,.section-head h2,.flavor-copy h2,.lunch-copy h2{font-size:clamp(2.4rem,11vw,3.6rem)}}
     .letter-in{display:inline-block;opacity:0;transform:translateY(.72em) rotate(2deg);will-change:opacity,transform}
     .letters-visible .letter-in{animation:letter-entry .62s cubic-bezier(.2,.72,.22,1) both;animation-delay:calc(var(--letter-order)*26ms)}
