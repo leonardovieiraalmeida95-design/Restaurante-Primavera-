@@ -2,7 +2,10 @@ import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
 import "./globals.css";
 
-const siteUrl = "https://leonardovieiraalmeida95-design.github.io/Restaurante-Primavera-/";
+const siteUrl =
+  process.env.VERCEL === "1" && process.env.VERCEL_PROJECT_PRODUCTION_URL
+    ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}/`
+    : "https://leonardovieiraalmeida95-design.github.io/Restaurante-Primavera-/";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),

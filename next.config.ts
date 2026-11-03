@@ -2,7 +2,7 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   output: "export",
-  basePath: "/Restaurante-Primavera-",
+  ...(process.env.VERCEL === "1" ? {} : { basePath: "/Restaurante-Primavera-" }),
   trailingSlash: true,
   images: { unoptimized: true },
 };
