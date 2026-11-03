@@ -1,5 +1,5 @@
-:HL["/Restaurante-Primavera-/_next/static/chunks/2ea6l83izi40i.css","style"]
+:HL["/Restaurante-Primavera-/_next/static/chunks/3g_5uk9io5gmy.css","style"]
 :HL["https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap","style"]
 2:[["children",{"s":"__PAGE__","h":160}]]
 1:[["children",{"s":"/_not-found","h":96,"c":"$Q2"}]]
-0:{"b":"KeTBqeP623OAhFDXtQhex","t":{"t":{"s":"","h":80,"c":"$Q1"}}}
+0:{"b":"JIf_zfv3Zt_KIiRMzuOtv","t":{"t":{"s":"","h":80,"c":"$Q1"}}}
