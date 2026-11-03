@@ -41,6 +41,8 @@ export default function SiteEnhancements() {
             .filter((entry) => entry.isIntersecting)
             .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
           if (!active) return;
+          const currentLink = links.find((link) => link.hash === `#${active.target.id}`);
+          document.querySelector(".floating")?.setAttribute("data-current-label", currentLink?.dataset.label ?? "");
           links.forEach((link) => {
             if (link.hash === `#${active.target.id}`) link.setAttribute("aria-current", "location");
             else link.removeAttribute("aria-current");
@@ -68,6 +70,7 @@ export default function SiteEnhancements() {
         });
 
         document.querySelectorAll<HTMLElement>("main h1, main h2").forEach((heading) => {
+          if (heading.querySelector(".word-in")) return;
           const accessibleText = heading.innerText.replace(/\s+/g, " ").trim();
           heading.setAttribute("aria-label", accessibleText);
           const walker = document.createTreeWalker(heading, NodeFilter.SHOW_TEXT);
@@ -79,17 +82,23 @@ export default function SiteEnhancements() {
           let order = 0;
           textNodes.forEach((node) => {
             const fragment = document.createDocumentFragment();
-            Array.from(node.nodeValue ?? "").forEach((character) => {
-              if (/\s/.test(character)) {
-                fragment.append(document.createTextNode(character));
+            (node.nodeValue ?? "").split(/(\s+)/).forEach((token) => {
+              if (!token) return;
+              if (/^\s+$/.test(token)) {
+                fragment.append(document.createTextNode(token));
                 return;
               }
-              const letter = document.createElement("span");
-              letter.className = "letter-in";
-              letter.setAttribute("aria-hidden", "true");
-              letter.style.setProperty("--letter-order", String(order++));
-              letter.textContent = character;
-              fragment.append(letter);
+              const word = document.createElement("span");
+              word.className = "word-in";
+              Array.from(token).forEach((character) => {
+                const letter = document.createElement("span");
+                letter.className = "letter-in";
+                letter.setAttribute("aria-hidden", "true");
+                letter.style.setProperty("--letter-order", String(order++));
+                letter.textContent = character;
+                word.append(letter);
+              });
+              fragment.append(word);
             });
             node.replaceWith(fragment);
           });

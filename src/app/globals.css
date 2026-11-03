@@ -75,4 +75,29 @@
     .letters-visible .letter-in{animation:letter-entry .62s cubic-bezier(.2,.72,.22,1) both;animation-delay:calc(var(--letter-order)*26ms)}
     @keyframes letter-entry{from{opacity:0;transform:translateY(.72em) rotate(2deg)}to{opacity:1;transform:translateY(0) rotate(0)}}
     @media(prefers-reduced-motion:reduce){.letter-in{opacity:1;transform:none;animation:none!important;will-change:auto}}
+    /* Animate letters without introducing a line-break opportunity inside a word. */
+    .word-in{display:inline-block;white-space:nowrap}
+    h1,h2,h3{hyphens:none;word-break:normal;overflow-wrap:normal;text-wrap:pretty}
+    p,.field-note,.sub{line-height:1.75}
+    @media(max-width:900px){
+      .wrap{width:calc(100% - 56px);margin-left:18px;margin-right:38px}
+      .floating{right:5px;width:16px;padding:5px 0;gap:1px;max-height:none;overflow:visible;border-radius:20px;background:rgba(255,246,226,.07);box-shadow:0 4px 18px #0004,inset 0 1px #ffffff28}
+      .floating a{width:24px;min-width:24px;height:30px;margin-left:-5px;border-radius:12px}
+      .floating a:not(.nav-cta)::before{width:3px;height:3px;opacity:.45}
+      .floating a[aria-current="location"]{background:transparent;box-shadow:none;color:var(--gold)}
+      .floating a[aria-current="location"]::before{opacity:1;box-shadow:0 0 0 3px #f5bd3d20}
+      .floating a[aria-current="location"]::after{content:none}
+      .floating::after{content:attr(data-current-label);position:absolute;right:22px;top:50%;transform:translateY(-50%);writing-mode:vertical-rl;color:var(--muted);font:500 .53rem "DM Sans",sans-serif;letter-spacing:.08em;white-space:nowrap;pointer-events:none}
+      .floating a:focus-visible::after{content:attr(data-label);position:absolute;right:calc(100% + 4px);top:50%;transform:translateY(-50%);padding:5px 8px;border:1px solid #fff3dc24;border-radius:20px;background:#1c160ff0;color:var(--cream);font:500 .65rem "DM Sans",sans-serif;white-space:nowrap}
+      .floating a:focus-visible{outline:1px solid var(--gold);outline-offset:1px}
+      .floating .nav-cta{width:24px;min-width:24px;height:24px;margin:4px 0 0 -5px;font-size:0;border:1px solid #f5bd3d55;background:#211b12;color:var(--gold)}
+      .floating .nav-cta::before{font-size:.45rem}
+      .hero h1{font-size:clamp(2.8rem,11.5vw,5.6rem);line-height:1.04;letter-spacing:0}
+      .story-intro h2,.section-head h2,.flavor-copy h2,.lunch-copy h2,.section h2{font-size:clamp(1.85rem,7.3vw,3.2rem);line-height:1.18;letter-spacing:-.025em}
+      .chapter-copy h3,.campaign h3,.visit-card h3{line-height:1.22}
+      .lunch-option strong{font-size:clamp(1.7rem,6.8vw,2.6rem);line-height:1.2}
+      .chapter-copy,.chapter-media,.field-note,.flavor-copy,.lunch-copy{min-width:0}
+      .social-link{max-width:43%;overflow-wrap:normal;font-size:.62rem}
+    }
+    @media(max-width:560px){.social-link{font-size:0;max-width:none;white-space:nowrap}.social-link::after{content:"Instagram ↗";font-size:.68rem}}
   
