@@ -8,12 +8,12 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: "Restaurante e Pizzaria Primavera | Jaguariaíva, PR",
   description:
-    "Restaurante e Pizzaria Primavera em Jaguariaíva, PR. Almoço com bife livre e por peso, pizza de forno a lenha e pizza na esteira. Consulte pelo WhatsApp.",
+    "Restaurante e Pizzaria Primavera em Jaguariaíva, PR. Almoço com buffet livre e por peso, pizza de forno a lenha e pizza na esteira. Consulte pelo WhatsApp.",
   openGraph: {
     type: "website",
     title: "Restaurante e Pizzaria Primavera | Jaguariaíva",
     description:
-      "Almoço com bife livre ou por peso e pizzas de forno a lenha e na esteira no Restaurante e Pizzaria Primavera, em Jaguariaíva.",
+      "Almoço com buffet livre ou por peso e pizzas de forno a lenha e na esteira no Restaurante e Pizzaria Primavera, em Jaguariaíva.",
     url: siteUrl,
     locale: "pt_BR",
   },
